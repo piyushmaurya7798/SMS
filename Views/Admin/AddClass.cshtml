@@ -1,0 +1,16 @@
+﻿@using SMSWEBAPI.Models
+@model Class
+
+<form method="post">
+    <div class="mb-3">
+        <label for="exampleInputClassName" class="form-label">Class Name</label>
+        <input asp-for="ClassName" type="text" class="form-control" id="ClassName">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputTeacherId" class="form-label">Teacher Id</label>
+        <select asp-for="TeacherId" type="text" class="form-control" id="TeacherId">
+
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
