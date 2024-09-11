@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Calendar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .calendar th, .calendar td {
+            border: 1px solid #ddd;
+            width: 14%;
+            height: 100px;
+            vertical-align: top;
+            padding: 10px;
+        }
+        .event-item {
+            background-color: #007bff;
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calendar-header text-center my-4 d-flex justify-content-between">
+            <button class="btn btn-primary" id="prevMonth">❮</button>
+            <h2 id="monthYear"></h2>
+            <button class="btn btn-primary" id="nextMonth">❯</button>
+        </div>
+
+        <table class="calendar table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sunday</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                </tr>
+            </thead>
+            <tbody id="calendarDays"></tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+@* 
+    <script>
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+
+        function fetchCalendarData() {
+            $.ajax({
+                url: '/Admin/Calendar2', // Controller endpoint that returns the JSON data
+                method: 'GET',
+                success: function (classes) {
+                    renderCalendar(currentMonth, currentYear, classes);
+                },
+                error: function () {
+                    alert('Failed to fetch class data.');
+                }
+            });
+        }
+
+        function renderCalendar(month, year, classes) {
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            $('#monthYear').text(`${monthNames[month]} ${year}`);
+            
+            // Calculate the first and last day of the month
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            let calendarDays = '';
+            let date = 1;
+
+            // Create the table rows (6 rows to cover the full weeks in any month)
+            for (let i = 0; i < 6; i++) {
+                let row = '<tr>';
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        // Empty cells before the first day of the month
+                        row += '<td></td>';
+                    } else if (date > daysInMonth) {
+                        // Stop if the date exceeds the month
+                        break;
+                    } else {
+                        // Populate calendar with the actual date
+                        row += `<td data-date="${date}">${date}`;
+                        
+                        // Find the events (classes) on this date and add them to the calendar
+                        const eventsOnThisDay = classes.filter(c => {
+                            const classDate = new Date(c.startDate);
+                            return classDate.getDate() === date && classDate.getMonth() === month && classDate.getFullYear() === year;
+                        });
+
+                        eventsOnThisDay.forEach(event => {
+                            row += `<div class="event-item">${event.title} (${event.teacher})</div>`;
+                        });
+                        
+                        row += '</td>';
+                        date++;
+                    }
+                }
+                row += '</tr>';
+                calendarDays += row;
+            }
+
+            $('#calendarDays').html(calendarDays);
+        }
+
+        // Navigate to previous month
+        $('#prevMonth').click(function () {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            fetchCalendarData();
+        });
+
+        // Navigate to next month
+        $('#nextMonth').click(function () {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            fetchCalendarData();
+        });
+
+        // Initial load
+        fetchCalendarData();
+    </script> *@
+    <!-- Modal for Adding Event -->
+    <!-- Modal for Adding Event -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">Add Event</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="eventForm">
+                        <div class="form-group">
+                            <label for="eventTitle">Event Title</label>
+                            <input type="text" class="form-control" id="eventTitle" placeholder="Enter event title">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Event Type</label>
+                            <select class="form-control" id="eventType">
+                                <option value="Meeting">Meeting</option>
+                                <option value="Class">Class</option>
+                                <option value="Holiday">Holiday</option>
+                                <option value="Workshop">Workshop</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="startTime">Start Time</label>
+                            <input type="datetime-local" class="form-control" id="startTime">
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime">End Time</label>
+                            <input type="datetime-local" class="form-control" id="endTime">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDescription">Description</label>
+                            <textarea class="form-control" id="eventDescription" rows="3"></textarea>
+                        </div>
+                        <input type="hidden" id="eventDate" />
+                        <button type="submit" class="btn btn-primary">Save Event</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

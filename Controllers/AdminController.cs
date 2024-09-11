@@ -258,6 +258,151 @@ namespace SMS.Controllers
             return Json(teach);
         }
        
+        
+        [HttpGet]
+        public IActionResult Calendar()
+        {
 
-}
+            return View();
+        }
+        
+        [HttpGet]
+        public IActionResult Calendar2()
+        {
+
+            List<Event> teach = new List<Event>();
+
+            string url = "https://localhost:44386/api/Admin/GetAllEvents";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var jsondata = response.Content.ReadAsStringAsync().Result;
+                teach = JsonConvert.DeserializeObject<List<Event>>(jsondata);
+            }
+            return Json(teach);
+        }
+        
+        [HttpPost]
+        public IActionResult CreateEvent([FromBody] Event c)
+        {
+
+           
+
+            string url = "https://localhost:44386/api/Admin/CreateEvent";
+            var jsondata = JsonConvert.SerializeObject(c);
+            StringContent content = new StringContent(jsondata, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
+            return RedirectToAction("Calendar");
+        }
+        
+        
+        [HttpDelete]
+        public IActionResult DeleteEvent(int id)
+        {
+
+           
+
+            string url = $"https://localhost:44386/api/Admin/DeleteEvent/{id}";
+            HttpResponseMessage response = client.DeleteAsync(url).Result;
+            return RedirectToAction("Calendar");
+        }
+       
+        public IActionResult GetAllEvents()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult GetAllEvents2()
+        {
+            List<Event> teach = new List<Event>();
+
+            string url = "https://localhost:44386/api/Admin/GetAllEvents";
+            //var jsondata = JsonConvert.SerializeObject(c);
+            //StringContent content = new StringContent(jsondata, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var jsondata = response.Content.ReadAsStringAsync().Result;
+                teach = JsonConvert.DeserializeObject<List<Event>>(jsondata);
+            }
+            return Json(teach);
+        }
+
+        [HttpGet]
+        public IActionResult GetEvent(int id)
+        {
+            Event teach = new Event();
+
+            string url = $"https://localhost:44386/api/Admin/GetAllEvents/{id}";
+            //var jsondata = JsonConvert.SerializeObject(c);
+            //StringContent content = new StringContent(jsondata, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var jsondata = response.Content.ReadAsStringAsync().Result;
+                teach = JsonConvert.DeserializeObject<Event>(jsondata);
+            }
+            return Json(teach);
+        }
+        
+        
+        [HttpPut]
+        public IActionResult EditEvent(int id,[FromBody]Event e)
+        {
+
+            string url = $"https://localhost:44386/api/Admin/UpdateEvent/{id}";
+            var jsondata = JsonConvert.SerializeObject(e);
+            StringContent content = new StringContent(jsondata, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.PutAsync(url,content).Result;
+          
+            return Ok("Calendar");
+        }
+        
+        
+  
+        public IActionResult TeacherList()
+        {
+            List<Teacher> teacher = new List<Teacher>();
+            string url = $"https://localhost:44386/api/Admin/GetTeacher";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            var jsondata= response.Content.ReadAsStringAsync().Result;
+            teacher = JsonConvert.DeserializeObject<List<Teacher>>(jsondata);
+          
+            return View(teacher);
+        }
+        
+        public IActionResult TeacherAttendance()
+        {
+            List<Teacher> teacher = new List<Teacher>();
+            string url = $"https://localhost:44386/api/Admin/GetTeacher";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            var jsondata= response.Content.ReadAsStringAsync().Result;
+            teacher = JsonConvert.DeserializeObject<List<Teacher>>(jsondata);
+          
+            return View(teacher);
+        }
+
+        [HttpPost]
+        public IActionResult MarkAttendance([FromBody] TeacherAttendance data)
+        {
+            if (data != null)
+            {
+                TeacherAttendance attendance = new TeacherAttendance
+                {
+                    TeacherId = data.TeacherId,
+                    Status = data.Status
+                };
+
+                //db.Add(attendance);
+                //db.SaveChanges();
+                return Ok();
+            }
+
+            return BadRequest("Invalid data.");
+        }
+
+    }
 }

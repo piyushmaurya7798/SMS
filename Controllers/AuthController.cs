@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using Newtonsoft.Json;
+using SMS.Models;
 using SMSWEBAPI.Models;
 using System.Text;
 
@@ -19,7 +21,19 @@ namespace SMS.Controllers
         {
             return View();
         }
+        [AcceptVerbs("Post", "Get")]
+        public IActionResult CheckExistingEmailId(string username)
+        {
+            string url = $"https://localhost:44386/api/Admin/CheckExistingEmailId/{username}";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                return Json($"username {username} already in used");
+            }
+            return Json(true);
 
+
+        }
         public IActionResult Login()
         {
             return View();

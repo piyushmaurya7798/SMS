@@ -1,0 +1,62 @@
+﻿<table id="eventsTable" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Event Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Event rows will be populated dynamically here -->
+    </tbody>
+</table>
+
+
+
+
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="eventForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">Add/Edit Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="eventTitle">Event Title</label>
+                        <input type="text" id="eventTitle" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="eventType">Event Type</label>
+                        <select id="eventType" class="form-control">
+                                <option value="Meeting">Meeting</option>
+                                <option value="Class">Class</option>
+                                <option value="Holiday">Holiday</option>
+                                <option value="Workshop">Workshop</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startTime">Start Date</label>
+                        <input type="datetime-local" id="startTime" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">End Date</label>
+                        <input type="datetime-local" id="endTime" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDescription">Description</label>
+                        <textarea id="eventDescription" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
