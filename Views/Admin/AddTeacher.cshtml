@@ -5,28 +5,41 @@
 <form method="post">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="FirstName" >
+        <input asp-for="FirstName" type="text" class="form-control" id="FirstName" >
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="Lastname">
+        <input asp-for="LastName" type="text" class="form-control" id="Lastname">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">User Name</label>
+        <input asp-for="username" type="text" class="form-control" id="username">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Qualification</label>
-        <input type="text" class="form-control" id="Qualification">
+        <input asp-for="Qualification" type="text" class="form-control" id="Qualification">
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Subject Id</label>
-        <input type="text" class="form-control" id="SubjectId">
+        <label for="exampleInputPassword1" class="form-label">Subject Name</label>
+        <input asp-for="SubjectName" type="text" class="form-control" id="SubjectName">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Email</label>
-        <input type="text" class="form-control" id="Email">
+        <input asp-for="Email" type="email" class="form-control" id="Email">
+    </div>
+    
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Phone</label>
+        <input asp-for="Phone" type="text" class="form-control" id="Phone">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Salary</label>
+        <input asp-for="Salary" type="text" class="form-control" id="Salary">
     </div>
     
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Hire Date</label>
-        <input type="date" class="form-control" id="Email">
+        <input asp-for="HireDate" type="date" class="form-control" id="HireDate">
     </div>
   
     <input type="submit" class="btn btn-primary" value="Submit"/>

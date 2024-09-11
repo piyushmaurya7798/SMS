@@ -1,0 +1,33 @@
+﻿@using SMSWEBAPI.Models
+@model ApplicationViewModel
+
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input asp-for="Email" type="email" class="form-control" id="Email">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Phone</label>
+        <input asp-for="Phone" type="text" class="form-control" id="Phone">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Highest Qualification</label>
+        <input asp-for="HighestQualification" type="text" class="form-control" id="Qualification">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Grade</label>
+        <input asp-for="Grade" type="text" class="form-control" id="Grade">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Latest Result</label>
+        <input asp-for="LatestRecords" type="file" class="form-control" id="LatestRecords">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Applying For</label>
+        <input asp-for="ApplyingFor" type="text" class="form-control" id="ApplyingFor">
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Submit" />
+</form>

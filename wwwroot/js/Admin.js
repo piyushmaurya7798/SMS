@@ -1,30 +1,58 @@
 ﻿$(document).ready(function () {
     $.ajax({
-        url: "https://localhost:44386/api/Admin/GetTeacher",
+        url: "/Admin/GetTeacher",
         type: "Get",
-        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var htmlContent = "";
+            var i = 1;
+            $.each(result, function (index, item) {
+                console.log("Processing item:", item);
+
+                htmlContent += "<option value='" + item.teacherId + "'>" + item.firstName + "</option>";
+                i++;
+            });
+            console.log(htmlContent);
+            $('#TeacherId').html(htmlContent);
+        },
+        error: function (xhr, status, error) {
+
+
+            console.error("AJAX Error:", status, error);
+            console.error("Response Text:", xhr.responseText);
+        }
+    })
+
+    $.ajax({
+        url: "/Admin/GetClass",
+        type: "Get",
+        dataType: "json",
         success: function (result) {
             var htmlContent = "";
             var i = 1;
             $.each(result, function (index, item) {
                 console.log("Processing item:", item);
                
-                htmlContent += "<option value='" + item.TeacherId + "'>" + item.FirstName + "</option>";
+                htmlContent += "<option value='" + item.className + "'>" + item.className + "</option>";
                 i++;
             });
             console.log(htmlContent);
-            $('#TeacherId').html(htmlContent);
+            $('#AddClassInFees').html(htmlContent);
+            $('#GetclassinStudent').html(htmlContent);
         },
-        error: function () { 
-            console.log("DOne")
+        error: function (xhr, status, error) {  
+
+
+            console.error("AJAX Error:", status, error);
+            console.error("Response Text:", xhr.responseText);
         }
     })
 
 
     $.ajax({
-        url: "https://localhost:44386/api/Admin/GetNoOfStudents",
+        url: "/Admin/GetNoOfStudents",
         type: "Get",
-        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        dataType: "json",
         success: function (result) {
 
             console.log(result);
@@ -36,9 +64,9 @@
     })
 
     $.ajax({
-        url: "https://localhost:44386/api/Admin/NoOfTeachers",
+        url: "/Admin/NoOfTeachers",
         type: "Get",
-        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        dataType: "json",
         success: function (result) {
 
             console.log(result);

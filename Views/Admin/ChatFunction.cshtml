@@ -1,0 +1,450 @@
+﻿<!doctype html>
+<html lang="en" dir="ltr">
+
+<!-- soccer/project/app-chat.html  07 Jan 2020 03:40:36 GMT -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+<title>:: Soccer :: Chat</title>
+
+<!-- Bootstrap Core and vandor -->
+<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/plugins/dropify/css/dropify.min.css">
+
+<!-- Core css -->
+<link rel="stylesheet" href="/assets/css/main.css"/>
+<link rel="stylesheet" href="/assets/css/theme1.css"/>
+</head>
+
+<body class="font-montserrat">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+
+
+
+    <div class="page">
+        <div class="section-light py-3 chat_app">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="card bg-none b-none">
+                            <div class="card-header bline bg-none">
+                                <h3 class="card-title">Friends Group <small>Last seen: 2 hours ago</small></h3>
+                                <div class="card-options">
+                                    <a href="javascript:void(0)" class="p-1"><i class="fa fa-plus"></i></a>
+                                    <a href="javascript:void(0)" class="p-1"><i class="fa fa-cog"></i></a>
+                                    <a href="javascript:void(0)" class="p-1"><i class="fa fa-refresh"></i></a>
+                                    <a href="javascript:void(0)" class="p-1 chat_list_btn"><i class="fa fa-align-right"></i></a>
+                                </div>
+                            </div>                        
+                            <div class="chat_windows">
+                                <ul class="mb-0">
+                                    <li class="other-message">
+                                        <img class="avatar mr-3" src="/assets/images/xs/avatar2.jpg" alt="avatar">
+                                        <div class="message">
+                                            <p class="bg-light-blue">Are we meeting today?</p>
+                                            <span class="time" >10:10 AM, Today</span>
+                                        </div>
+                                    </li>    
+                                    <li class="other-message">
+                                        <img class="avatar mr-3" src="/assets/images/xs/avatar3.jpg" alt="avatar">
+                                        <div class="message">
+                                            <p class="bg-light-cyan">Hi Aiden, how are you? How is the project coming along?</p>
+                                            <p class="bg-light-cyan">Are we meeting today?</p>
+                                            <span class="time" >10:15 AM, Today</span>
+                                        </div>
+                                    </li>                                    
+                                    <li class="my-message">
+                                        <div class="message">
+                                            <p class="bg-light-gray">Project has been already finished and I have results to show you.</p>
+                                            <div class="file_folder">
+                                                <a href="javascript:void(0);">
+                                                    <div class="icon">
+                                                        <i class="fa fa-file-excel-o text-success"></i>
+                                                    </div>
+                                                    <div class="file-name">
+                                                        <p class="mb-0 text-muted">Report2017.xls</p>
+                                                        <small>Size: 68KB</small>
+                                                    </div>
+                                                </a>
+                                                <a href="javascript:void(0);">
+                                                    <div class="icon">
+                                                        <i class="fa fa-file-word-o text-primary"></i>
+                                                    </div>
+                                                    <div class="file-name">
+                                                        <p class="mb-0 text-muted">Report2017.doc</p>
+                                                        <small>Size: 68KB</small>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <span class="time">10:17 AM, Today</span>
+                                        </div>
+                                    </li>
+                                    <li class="other-message">
+                                        <img class="avatar mr-3" src="/assets/images/xs/avatar4.jpg" alt="avatar">
+                                        <div class="message">
+                                            <div class="media_img">
+                                                <img src="/assets/images/gallery/1.jpg" class="w150 img-thumbnail mb-1" />
+                                                <img src="/assets/images/gallery/2.jpg" class="w150 img-thumbnail mb-1" />
+                                            </div>
+                                            <span class="time" >10:15 AM, Today</span>
+                                        </div>
+                                    </li> 
+                                    <li class="other-message">
+                                        <span class="avatar avatar-blue mr-3">NG</span>
+                                        <div class="message">                                            
+                                            <p class="bg-light-pink">Are we meeting today I have results?</p>
+                                            <p class="bg-light-pink">Project has been already finished and to show you.</p>
+                                            <span class="time" >10:18 AM, Today</span>
+                                        </div>
+                                    </li>
+                                    <li class="my-message">
+                                        <div class="message">
+                                            <p class="bg-light-gray">Well we have good budget for the project</p>
+                                            <span class="time">10:25 AM, Today</span>
+                                        </div>
+                                    </li>
+                                    <li class="my-message">
+                                        <div class="message">
+                                            <div class="media_img">
+                                                <img src="/assets/images/gallery/3.jpg" class="w100 img-thumbnail mb-1"/>
+                                                <img src="/assets/images/gallery/4.jpg" class="w100 img-thumbnail mb-1" />
+                                                <img src="/assets/images/gallery/5.jpg" class="w100 img-thumbnail mb-1" />
+                                                <img src="/assets/images/gallery/6.jpg" class="w100 img-thumbnail mb-1" />
+                                            </div>
+                                            <span class="time">10:25 AM, Today</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="chat-message clearfix">
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#addtask"><i class="icon-camera"></i></a>
+                                    <a href="javascript:void(0);"><i class="icon-camcorder"></i></a>
+                                    <a href="javascript:void(0);"><i class="icon-paper-plane"></i></a>
+                                    <div class="input-group mb-0">
+                                        <input type="text" class="form-control" placeholder="Enter text here...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat_list section-white" id="users">
+                <a href="javascript:void(0)" class="chat_list_btn float-right"><i class="fa  fa-window-close"></i></a>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users-list" role="tab" aria-controls="users-list" aria-selected="true">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="groups-tab" data-toggle="tab" href="#groups" role="tab" aria-controls="groups" aria-selected="false">Groups</a>
+                    </li>                    
+                </ul>
+                <div class="input-group mt-2 mb-2">
+                    <input type="text" class="form-control search" placeholder="Search...">
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="users-list" role="tabpanel" aria-labelledby="users-tab">
+                        <ul class="right_chat list-unstyled list">
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar4.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Ava Phillip Smith</span>
+                                            <span class="message">Are we meeting today?</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar5.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Debra Stewart</span>
+                                            <span class="message">Project has been already</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar2.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Harry McCall</span>
+                                            <span class="message">Well we have good budget</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar1.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Nancy Flanary</span>
+                                            <span class="message">i'm meeting today</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar3.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Marshall Nichols</span>
+                                            <span class="message">I have results to show you</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar5.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Debra Stewart</span>
+                                            <span class="message">How is the project coming</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar2.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Harry McCall</span>
+                                            <span class="message">Well we have good budget</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar2.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Harry McCall</span>
+                                            <span class="message">Are we meeting today?</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar1.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Nancy Flanary</span>
+                                            <span class="message">Hi Suse, how are you?</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar5.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Debra Stewart</span>
+                                            <span class="message">Hi Aiden, how are you?</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                             <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar1.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Nancy Flanary</span>
+                                            <span class="message">I have results to show you</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar3.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Marshall Nichols</span>
+                                            <span class="message">Well we have good budget</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar5.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Debra Stewart</span>
+                                            <span class="message">Hi Aiden, how are you?</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar2.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Harry McCall</span>
+                                            <span class="message">I have results to show you</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="groups" role="tabpanel" aria-labelledby="groups-tab">
+                        <ul class="right_chat list-unstyled list">
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar1.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">PHP Groups</span>
+                                            <span class="message">How is the project coming</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar2.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Family Groups</span>
+                                            <span class="message">Update Code</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar3.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Harry McCall</span>
+                                            <span class="message">3 New design bug</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar4.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Friends holic</span>
+                                            <span class="message">Hello All!</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="/assets/images/xs/avatar5.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">CL City 2</span>
+                                            <span class="message">Add new contact</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+
+
+<!-- Add New Task -->
+<div class="modal fade" id="addtask" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="title" id="defaultModalLabel">Add Picture</h6>
+            </div>
+            <div class="modal-body">
+                <input type="file" class="dropify">
+                <small class="text-danger">Recommended image size is 5MB</small>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/bundles/lib.vendor.bundle.js"></script>
+
+<script src="/assets/plugins/dropify/js/dropify.min.js"></script>
+
+<script src="/assets/js/core.js"></script>
+<script>
+    $(function() {
+        "use strict";
+        
+        $('.dropify').dropify();
+    
+        var drEvent = $('#dropify-event').dropify();
+        drEvent.on('dropify.beforeClear', function(event, element) {
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+    
+        drEvent.on('dropify.afterClear', function(event, element) {
+            alert('File deleted');
+        });
+    
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+    });
+    </script>
+</body>
+
+<!-- soccer/project/app-chat.html  07 Jan 2020 03:40:36 GMT -->
+</html>

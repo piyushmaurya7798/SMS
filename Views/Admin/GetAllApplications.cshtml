@@ -1,0 +1,121 @@
+﻿@model List<Application>
+
+<h2>All Applications</h2>
+
+<!-- Application Table -->
+<form id="applicationForm">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Highest Qualification</th>
+                <th>Grade</th>
+                <th>Applying For</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var app in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" class="select-checkbox" data-email="@app.Email" />
+                    </td>
+                    <td>@app.Email</td>
+                    <td>@app.Phone</td>
+                    <td>@app.HighestQualification</td>
+                    <td>@app.Grade</td>
+                    <td>@app.ApplyingFor</td>
+                    <td>@app.Date.ToString("yyyy-MM-dd")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Button to trigger modal -->
+    <button type="button" id="openModalBtn" class="btn btn-primary" disabled>Send Email</button>
+
+    <!-- Modal for entering the email message -->
+    <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Send Email</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="emailMessage" class="form-label">Message</label>
+                        <textarea class="form-control" id="emailMessage" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="sendEmailBtn" class="btn btn-primary">Send Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var selectedEmails = [];
+
+        // Handle checkbox change events
+        $('.select-checkbox').change(function () {
+            selectedEmails = [];
+            $('.select-checkbox:checked').each(function () {
+                selectedEmails.push($(this).data('email'));
+            });
+
+            // Enable/disable button based on selection
+            if (selectedEmails.length > 0) {
+                $('#openModalBtn').prop('disabled', false);
+            } else {
+                $('#openModalBtn').prop('disabled', true);
+            }
+        });
+
+        // Open modal when button is clicked
+        $('#openModalBtn').click(function () {
+            $('#emailModal').modal('show');
+        });
+
+        // Handle send email button click
+        $('#sendEmailBtn').click(function () {
+            var message = $('#emailMessage').val();
+
+            if (selectedEmails.length > 0 && message.trim() != "") {
+                // Send AJAX request to your controller
+                $.ajax({
+                    url: '/Admin/SendEmail', // Call your controller action
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        emails: selectedEmails,
+                        message: message
+                    }),
+                    success: function (response) {
+                        alert('Emails sent successfully!');
+                        // Clear the modal and uncheck checkboxes
+                        $('#emailMessage').val('');
+                        $('.select-checkbox').prop('checked', false);
+                        $('#openModalBtn').prop('disabled', true);
+                        $('#emailModal').modal('hide');
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error sending emails. Please try again.');
+                    }
+                });
+            } else {
+                alert('Please select at least one email and enter a message.');
+            }
+        });
+    });
+</script>
