@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using Newtonsoft.Json;
+using NuGet.DependencyResolver;
 using SMS.Models;
 using SMSWEBAPI.Models;
 using System.Text;
@@ -45,9 +46,12 @@ namespace SMS.Controllers
             var jsondata = JsonConvert.SerializeObject(u);
             StringContent content = new StringContent(jsondata, Encoding.UTF8, "application/json");
             HttpResponseMessage response = client.PostAsync(url, content).Result;
-
+                
             if (response.IsSuccessStatusCode)
             {
+            var jsondata2 = response.Content.ReadAsStringAsync().Result;
+            User s = JsonConvert.DeserializeObject<User>(jsondata2);
+            HttpContext.Session.SetString("urole", s.URole);
                 return RedirectToAction("Index");
             }
             return View();

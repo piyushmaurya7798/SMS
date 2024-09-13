@@ -1,4 +1,12 @@
-﻿<!doctype html>
+﻿@* @page
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var userRole = HttpContextAccessor.HttpContext.Session.GetString("urole");
+} *@
+
+<!doctype html>
 <html lang="en" dir="ltr">
 
 <!-- soccer/project/  07 Jan 2020 03:36:49 GMT -->
@@ -297,6 +305,8 @@
             <h5 class="brand-name">Soccer <a href="javascript:void(0)" class="menu_option float-right"><i class="icon-grid font-16" data-toggle="tooltip" data-placement="left" title="Grid & List Toggle"></i></a></h5>
             <nav id="left-sidebar-nav" class="sidebar-nav">
                 <ul class="metismenu">
+                    @* @if (HttpContext.Session.GetString("UserRole") == "Admin") *@
+    {
                     <li class="g_heading">Project</li>
                     <li class="active"><a asp-action="Dashboard" asp-controller="Admin"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
                     <li><a asp-action="TeacherList" asp-controller="Admin"><i class="fa fa-list-ol"></i><span>Teacher list</span></a></li>
