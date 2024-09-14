@@ -1,0 +1,11 @@
+﻿@* @model ChatViewModel
+
+<h3>Select a user to chat with:</h3>
+
+<form asp-action="Chat" method="get">
+    <select asp-for="ReceiverId" asp-items="@(new SelectList(Model.Users, "Id", "Username"))">
+        <option value="">-- Select User --</option>
+    </select>
+    <input type="submit" value="Start Chat" />
+</form>
+ *@
