@@ -1,0 +1,34 @@
+﻿
+@model List<Curriculum>
+
+@{
+    ViewData["Title"] = "Curriculum List";
+}
+<a asp-controller="Academic" asp-action="AddCurriculum"><input type="button" value="Add Student" class=" btn btn-primary" /></a>
+<h2>Curriculum List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Course Name</th>
+            <th>Description</th>
+            <th>Syllabus</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+            
+          @foreach(var curriculum in Model)
+            {
+                <tr>
+                    <td>@curriculum.CurriculumId</td>
+                    <td>@curriculum.CourseName</td>
+                    <td>@curriculum.Description</td>
+                    <td>@curriculum.Syllabus</td>
+                </tr> 
+            }
+        
+        
+    </tbody>
+</table>

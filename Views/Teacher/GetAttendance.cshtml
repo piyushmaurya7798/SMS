@@ -1,0 +1,19 @@
+﻿@model SMSWEBAPI.Models.StudentAttendance
+
+<h2>Student Details</h2>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th scope="row">Class ID</th>
+            <td>@Model.ClassId</td>
+        </tr>
+        <tr>
+            <th scope="row">Student ID</th>
+            <td>@Model.StudentId</td>
+        </tr>
+        <!-- You can add more fields here as needed -->
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-primary">Back to List</a>

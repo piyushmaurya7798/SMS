@@ -1,0 +1,48 @@
+﻿
+
+@model List<SMSWEBAPI.Models.Student>
+
+
+<a asp-controller="Students" asp-action="AddStudent"><input type="button" value="Add Student" class=" btn btn-primary" /></a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Username</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Date Of Birth</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+            <th scope="col">Enrollment Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <th scope="row">@d.userid</th>
+                <td>@d.username</td>
+                <td>@d.FirstName</td>
+        
+                <td>@d.LastName</td>
+                <td>@d.MiddleName</td>
+                <td>@d.DOB.ToString("yyyy-MM-dd")</td>
+                <td>@d.gender</td>
+                <td>@d.Address</td>
+                <td>@d.Email</td>
+                <td>@d.EnrollDate</td>
+                <td>
+                    <a asp-controller="Students" asp-action="DeleteStudent" asp-route-id="@d.userid">
+                        <input type="submit" value="Delete" class="btn btn-secondary" />
+                    </a>
+                    <a asp-controller="Students" asp-action="UpdateStudent" asp-route-id="@d.userid">
+                        <input type="submit" value="Update" class="btn btn-secondary" />
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

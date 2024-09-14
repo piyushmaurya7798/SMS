@@ -5,9 +5,10 @@
 <form method="post">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Subject Name</label>
-        <input type="text" class="form-control" id="Subject">
+        <input type="text" asp-for="SubjectName" class="form-control" id="Subject">
     </div>
-  
+    <select class="form-control" asp-for="ClassId" id="FetchAllClasses">
+    </select>
 
     <input type="submit" class="btn btn-primary" value="Submit" />
 </form>

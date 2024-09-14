@@ -1,0 +1,50 @@
+﻿@model SMSWEBAPI.Models.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h2>Student Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Student Information</h4>
+
+        <dl class="row">
+            <dt class="col-sm-3">Username</dt>
+            <dd class="col-sm-9">@Model.username</dd>
+
+            <dt class="col-sm-3">First Name</dt>
+            <dd class="col-sm-9">@Model.FirstName</dd>
+
+            <dt class="col-sm-3">Middle Name</dt>
+            <dd class="col-sm-9">@Model.MiddleName</dd>
+
+            <dt class="col-sm-3">Last Name</dt>
+            <dd class="col-sm-9">@Model.LastName</dd>
+
+            <dt class="col-sm-3">Date of Birth</dt>
+            <dd class="col-sm-9">@Model.DOB.ToString("yyyy-MM-dd")</dd>
+
+            <dt class="col-sm-3">Gender</dt>
+            <dd class="col-sm-9">@Model.gender</dd>
+
+            <dt class="col-sm-3">Address</dt>
+            <dd class="col-sm-9">@Model.Address</dd>
+
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">@Model.Phone</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Enrollment Date</dt>
+            <dd class="col-sm-9">@Model.EnrollDate</dd>
+
+            <dt class="col-sm-3">Class ID</dt>
+            <dd class="col-sm-9">@Model.ClassId</dd>
+        </dl>
+
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    </div>
+</div>
